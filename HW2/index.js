@@ -36,6 +36,10 @@ const person = {
 
 obj.getData.call(person);
 
+const getDataForPerson = obj.getData.bind(person);
+
+getDataForPerson();
+getDataForPerson();
 
 console.log("--------------------------------------------------");
 console.log("3. Recursion:");
