@@ -24,17 +24,18 @@ console.log("--------------------------------------------------");
 console.log("2. Contexts and this:");
 
 const obj = {
-    name: 'Alice',
-    age: 30,
     getData: function () {
         console.log(`Person name is: ${this.name} and age ${this.age}`);
     }
 };
 
-obj.getData();
+const person = {
+    name: 'Alice',
+    age: 30
+};
 
-const boundGetData = obj.getData.bind(obj);
-boundGetData();
+obj.getData.call(person);
+
 
 console.log("--------------------------------------------------");
 console.log("3. Recursion:");
