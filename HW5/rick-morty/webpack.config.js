@@ -6,35 +6,30 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        clean: true
+        clean: true,
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: 'babel-loader',
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            }
-        ]
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html'
-        })
+            template: './public/index.html',
+        }),
     ],
     devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist'),
-        },
+        static: path.join(__dirname, 'dist'),
         hot: true,
         port: 3000,
     },
-
-    mode: 'development'
+    mode: 'development',
 };
